@@ -1,0 +1,41 @@
+//  Write some awesome Swift code, or import libraries like "Foundation",
+//  "Dispatch", or "Glibc"
+
+
+
+var prixTTCParProduit:Dictionary<String,Double>!
+var prixHTParProduit:Dictionary<String,Double> = Dictionary<String, Double>()
+var TVA = 20.0
+
+
+prixTTCParProduit = ["Iphone 5s":300.50,"Iphone 6s":480,"Iphone 8":700,"Iphone X":1000]
+
+
+func calculerPrixHT(listTTCProduits:Dictionary<String,Double>, TVA:Double) {
+	
+	for (key , value) in listTTCProduits{
+		
+		 let prixHT = value/(1+TVA/100)
+		
+		 prixHTParProduit[key] = prixHT
+		
+	}
+	
+}
+
+func afficherPrixHT(listHTProduits: Dictionary<String,Double>){
+	
+ 	
+	for (key , value) in listHTProduits{
+		
+		  print("Key: \(key) value: \(value)")
+		
+	}
+}
+
+calculerPrixHT(listTTCProduits:prixTTCParProduit ,TVA:TVA)
+afficherPrixHT(listHTProduits:prixHTParProduit)
+
+
+
+ 
